@@ -46,9 +46,9 @@ begin
     boardplate = drawBoardPlate(ax, boardplate)
 
     while !all(isnothing, nexts)
-        foreach((x,y) ->  if !(isnothing(y) && isnothing(x)); x[] = y[1]; end, animposes, nexts)
-        states = map(y -> y[2], nexts)
-        nexts = map((x,y) -> iterate(x, y), movers, states)
+        foreach((x,y) ->  if !(isnothing(y) || isnothing(x)); x[] = y[1]; end, animposes, nexts)
+        states = map(y -> isnothing(y) ? y : y[2], nexts)
+        nexts = map((x,y) -> if !(isnothing(y) || isnothing(x)); iterate(x, y); end, movers, states)
         sleep(1/60)
     end
     foreach((p,col,c) -> begin

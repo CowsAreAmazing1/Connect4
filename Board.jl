@@ -65,7 +65,7 @@ end
 Base.iterate(pm::PieceMover, state = 0) = begin
     d = pm.startIndex[1] - pm.endIndex[1]
 
-    smoothstep(x) = x * x
+    smoothstep(x) = x * x * x * x
     ts(x) = smoothstep(x / 60 / pm.time / d)
 
     state > 60pm.time*d ? nothing : (
