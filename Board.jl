@@ -4,7 +4,14 @@ println("Importing GeometryBasics..")
 using GeometryBasics
 println("Done adding packages")
 
-const Board = Matrix{Symbol}
+const BoardM = Matrix{Symbol}
+
+struct Board
+    
+end
+
+
+
 c4red = RGBAf(0.976470588235,0.121568627451,0.21568627451);
 c4yellow = RGBAf(0.980392156863,0.890196078431,0.207843137255);
 c4blue = RGBAf(0.1098,0.380392156863,0.9411);
